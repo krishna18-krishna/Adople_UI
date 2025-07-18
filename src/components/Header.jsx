@@ -44,12 +44,18 @@ const Dropdown = ({ title, children, isOpen, onToggle }) => {
   );
 };
 
-const Header = () => {
+const Header = ({ currentPage, setCurrentPage }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleDropdownToggle = (dropdownName) => {
     setOpenDropdown(openDropdown === dropdownName ? null : dropdownName);
+  };
+
+  const handleNavigation = (page) => {
+    setCurrentPage(page);
+    setOpenDropdown(null);
+    setMobileMenuOpen(false);
   };
 
   const platformContent = (
@@ -155,9 +161,16 @@ const Header = () => {
                 {platformContent}
               </Dropdown>
               
-              <a href="#" className="px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
+              <button 
+                onClick={() => handleNavigation('customers')}
+                className={`px-4 py-2 transition-colors duration-200 font-medium ${
+                  currentPage === 'customers' 
+                    ? 'text-blue-600' 
+                    : 'text-gray-700 hover:text-blue-600'
+                }`}
+              >
                 Customers
-              </a>
+              </button>
               <a href="#" className="px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
                 Pricing
               </a>
@@ -177,12 +190,26 @@ const Header = () => {
         {mobileMenuOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-gray-200">
-              <a href="#" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
+              <button 
+                onClick={() => handleNavigation('home')}
+                className={`block w-full text-left px-3 py-2 text-base font-medium transition-colors duration-200 ${
+                  currentPage === 'home' 
+                    ? 'text-blue-600' 
+                    : 'text-gray-700 hover:text-blue-600'
+                }`}
+              >
                 Platform
-              </a>
-              <a href="#" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
+              </button>
+              <button 
+                onClick={() => handleNavigation('customers')}
+                className={`block w-full text-left px-3 py-2 text-base font-medium transition-colors duration-200 ${
+                  currentPage === 'customers' 
+                    ? 'text-blue-600' 
+                    : 'text-gray-700 hover:text-blue-600'
+                }`}
+              >
                 Customers
-              </a>
+              </button>
               <a href="#" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
                 Pricing
               </a>

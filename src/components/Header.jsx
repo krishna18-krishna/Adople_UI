@@ -154,26 +154,14 @@ const Header = () => {
               >
                 {platformContent}
               </Dropdown>
-
+              
               <a href="#" className="px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
                 Customers
               </a>
               <a href="#" className="px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
                 Pricing
               </a>
-              <a href="#" className="px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
-                Resources
-              </a>
             </div>
-          </div>
-
-          <div className="hidden md:flex items-center space-x-4">
-            <button className="text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
-              Sign In
-            </button>
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium">
-              Get Started
-            </button>
           </div>
 
           <div className="md:hidden">

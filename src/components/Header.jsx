@@ -7,7 +7,6 @@ const Dropdown = ({ title, children, isOpen, onToggle }) => {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        // Don't close if clicking on the trigger button
         if (!event.target.closest('[data-dropdown-trigger]')) {
           onToggle();
         }
@@ -35,7 +34,7 @@ const Dropdown = ({ title, children, isOpen, onToggle }) => {
       </button>
 
       {isOpen && (
-        <div className="absolute left-0 right-1/0 -translate-x-1/2 top-full mt-2 w-screen max-w-6xl bg-white rounded-xl shadow-2xl border border-gray-100 z-50 animate-in fade-in slide-in-from-top-5 duration-200">
+        <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-screen max-w-6xl bg-white rounded-xl shadow-2xl border border-gray-100 z-50 animate-in fade-in slide-in-from-top-5 duration-200">
           <div className="p-8">
             {children}
           </div>
@@ -131,7 +130,6 @@ const Header = () => {
     </div>
   );
 
-
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -163,7 +161,6 @@ const Header = () => {
               <a href="#" className="px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
                 Pricing
               </a>
-
               <a href="#" className="px-4 py-2 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium">
                 Resources
               </a>
@@ -200,9 +197,6 @@ const Header = () => {
               </a>
               <a href="#" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
                 Pricing
-              </a>
-              <a href="#" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
-                Resources
               </a>
               <a href="#" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 transition-colors duration-200">
                 Resources
